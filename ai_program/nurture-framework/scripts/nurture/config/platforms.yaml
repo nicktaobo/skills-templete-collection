@@ -1,0 +1,121 @@
+platforms:
+  # ========== XR (X/Twitter) ==========
+  x_twitter:
+    enabled: true
+    weight: 0.30                    # Relative weight for platform selection
+    session_duration: [8, 15]       # Minutes
+    daily_limits:
+      max_sessions: 2
+      max_likes: 8
+      max_replies: 4
+    actions:
+      browse_feed: {weight: 1.0}
+      like: {weight: 0.35, max_per_session: 4}
+      retweet: {weight: 0.15, max_per_session: 2}
+      reply: {weight: 0.20, max_per_session: 2}
+      follow: {weight: 0.08, max_per_session: 1}
+      bookmark: {weight: 0.10, max_per_session: 2}
+    topics:
+      - "AI coding"
+      - "vibe coding"
+      - "LLM"
+      - "startups"
+      - "indie hackers"
+    avoid_topics:
+      - "politics"
+      - "crypto scams"
+      - "NSFW"
+    special_rules:
+      - reply_must_be_short: true        # Replies should be 1-2 sentences
+      - no_numbered_lists: true
+      - max_reply_length: 200
+
+  # ========== Rabbit (Reddit) ==========
+  reddit:
+    enabled: true
+    weight: 0.25
+    session_duration: [10, 20]
+    daily_limits:
+      max_sessions: 2
+      max_comments: 3
+      max_upvotes: 10
+    actions:
+      browse_feed: {weight: 1.0}
+      upvote: {weight: 0.45, max_per_session: 5}
+      comment: {weight: 0.25, max_per_session: 2}
+      save: {weight: 0.20, max_per_session: 3}
+    subreddits:
+      - "vibecoding"
+      - "ChatGPT"
+      - "LocalLLaMA"
+      - "startups"
+      - "SideProject"
+    search_fallback_topics:
+      - "vibe coding"
+      - "AI coding tools"
+      - "Claude Code"
+      - "cursor AI"
+      - "LLM programming"
+    special_rules:
+      - use_vision_for_content: true     # Must use screenshots to read posts
+      - casual_tone: true                # lol, ngl, fr, tbh allowed
+      - min_comment_length: 10
+      - max_comment_length: 300
+
+  # ========== HN (Hacker News) ==========
+  hackernews:
+    enabled: true
+    weight: 0.25
+    session_duration: [5, 12]
+    daily_limits:
+      max_sessions: 1
+      max_comments: 1
+      max_upvotes: 5
+    actions:
+      browse_frontpage: {weight: 1.0}
+      upvote: {weight: 0.30, max_per_session: 3}
+      comment: {weight: 0.15, max_per_session: 1}
+    topics:
+      - "AI"
+      - "LLM"
+      - "vibe coding"
+      - "startups"
+      - "developer tools"
+    special_rules:
+      - new_account_limit:
+          karma_threshold: 1
+          age_hours_threshold: 48
+          max_comments_per_day: 1
+          max_comment_length: 150
+      - no_markdown: true
+      - no_numbered_lists: true
+      - no_ai_phrases: true
+      - tone: thoughtful_informal
+
+  # ========== PH (Product Hunt) ==========
+  product_hunt:
+    enabled: true
+    weight: 0.20
+    session_duration: [10, 18]
+    daily_limits:
+      max_sessions: 1
+      max_comments: 2
+      max_upvotes: 5
+    actions:
+      browse_daily: {weight: 1.0}
+      comment: {weight: 0.50, max_per_session: 2}
+      upvote: {weight: 0.25, max_per_session: 3}
+    topics:
+      - "AI tools"
+      - "developer tools"
+      - "productivity"
+      - "Mac apps"
+    special_rules:
+      - comments_must_be_product_specific: true
+      - max_comment_length: 250
+      - min_comment_length: 15
+      - casual_tone: true
+      - no_ai_cliches: true
+      - no_markdown: true
+      - filter_promoted: true
+      - vision_fallback_for_products: true

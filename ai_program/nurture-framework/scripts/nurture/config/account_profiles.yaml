@@ -1,0 +1,21 @@
+# Account credentials and usernames for each platform
+# DO NOT commit this file with real passwords to version control
+
+accounts:
+  x_twitter:
+    username: "nicktaobo"
+    email: ""
+    password: ""
+
+  reddit:
+    username: "Antique_Prune_4869"
+    email: ""
+    password: ""
+
+  hackernews:
+    username: "nicktaobo"
+
+  product_hunt:
+    username: "timyao1987"
+    email: ""
+    password: ""

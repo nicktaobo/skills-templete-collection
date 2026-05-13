@@ -1,0 +1,33 @@
+windows:
+  morning:
+    start: "08:30"
+    end: "10:30"
+    hit_probability: 1.0
+    max_platforms_per_window: 2
+    preferred_platforms:
+      - "x_twitter"
+      - "reddit"
+
+  noon:
+    start: "12:30"
+    end: "14:00"
+    hit_probability: 1.0
+    max_platforms_per_window: 1
+    preferred_platforms:
+      - "product_hunt"
+      - "hackernews"
+
+  evening:
+    start: "20:00"
+    end: "22:00"
+    hit_probability: 1.0
+    max_platforms_per_window: 2
+    preferred_platforms:
+      - "reddit"
+      - "x_twitter"
+
+global:
+  min_gap_between_platforms: 180
+  human_pause: [3, 7]
+  daily_platform_cooldown: 3600
+  max_total_daily_duration: 60
